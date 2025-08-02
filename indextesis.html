@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación de Tesis: Gestión del Riesgo Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales del cuerpo */
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #f1f5f9; /* Color de fondo general */
+        }
+
+        /* Contenedor principal para la diapositiva */
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        /* Estilo base para todas las diapositivas (ocultas por defecto) */
+        .slide {
+            display: none; /* <-- CORRECCIÓN CLAVE: Ocultar todas las diapositivas por defecto */
+            width: 100%;
+            max-width: 1100px;
+            height: 75vh;
+            max-height: 700px;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            padding: 2rem;
+            overflow-y: auto;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Estilo para la diapositiva activa (la única visible) */
+        .slide.active {
+            display: flex; /* <-- CORRECCIÓN CLAVE: Mostrar solo la diapositiva activa como flexbox */
+        }
+
+        /* Contenido dentro de la diapositiva */
+        .slide-content {
+            width: 100%;
+        }
+
+        /* Títulos y subtítulos */
+        .slide-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .slide-subtitle {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Pie de página con los botones de navegación */
+        footer {
+            width: 100%;
+            background-color: #e2e8f0;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+        }
+        .nav-button {
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Estilos de elementos específicos */
+        .logo-unmsm {
+            max-width: 120px;
+            margin-bottom: 1.5rem;
+        }
+        .table-container {
+            overflow-x: auto;
+            width: 100%;
+            max-width: 900px; 
+            margin: 0 auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.8rem; 
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 0.5rem; 
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #e2e8f0;
+            font-weight: 700;
+        }
+        ul {
+            list-style-position: inside;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <!-- Slide 1: Carátula Principal -->
+        <div id="slide-1" class="slide">
+            <div class="slide-content text-center">
+                <img src="https://seeklogo.com/images/U/universidad-nacional-mayor-de-san-marcos-escudo-logo-5552E03527-seeklogo.com.png" alt="[Imagen del escudo de la UNMSM]" class="logo-unmsm mx-auto invert">
+                <h1 class="text-3xl md:text-4xl font-black leading-tight mb-4">Gestión del riesgo digital en universidades públicas</h1>
+                <h2 class="text-xl md:text-2xl font-bold text-slate-300 mb-6">Hacia una cultura de ciberseguridad en el marco de la transformación digital del Estado</h2>
+                <p class="text-lg text-slate-400"><strong>Autor:</strong> Alvaro Zoé Mandujano Ayala</p>
+                <p class="text-md text-slate-400"><strong>Institución:</strong> Universidad Nacional Mayor de San Marcos</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: 1.1. Situación problemática -->
+        <div id="slide-2" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title">1.1. Situación Problemática</h2>
+                <div class="grid md:grid-cols-2 gap-6 text-base">
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-lg mb-2 text-sky-700">Contexto: Transformación Digital</h4>
+                        <ul class="list-disc space-y-2">
+                            <li>La administración pública avanza hacia la digitalización para mejorar eficiencia y transparencia.</li>
+                            <li>Este proceso redefine la relación del Estado con la ciudadanía, pero introduce nuevos desafíos.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-lg mb-2 text-red-700">El Desafío: Riesgo Digital</h4>
+                        <ul class="list-disc space-y-2">
+                            <li>A mayor digitalización, mayores son los riesgos y amenazas (filtraciones, intrusiones, ciberataques).</li>
+                            <li>Existe una brecha entre el marco normativo y la implementación de una cultura de ciberseguridad.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 col-span-2">
+                        <h4 class="font-bold text-lg mb-2 text-slate-700">Caso de Estudio: UNMSM</h4>
+                        <ul class="list-disc space-y-2">
+                            <li>Tensión entre la apertura digital y la obligación de resguardar datos sensibles.</li>
+                            <li>Incidentes de seguridad previos denotan una limitada conciencia institucional sobre el riesgo.</li>
+                            <li>El problema no es solo técnico, sino también político y organizacional.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: 1.2. Formulación del problema -->
+        <div id="slide-3" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title">1.2. Formulación del Problema</h2>
+                <div class="bg-white p-6 rounded-lg">
+                    <h3 class="font-bold text-xl mb-3 text-center text-red-800">Problema General</h3>
+                    <p class="text-lg text-center mb-6 p-3 bg-red-50 rounded-md">¿Cómo se gestiona el riesgo digital y qué condiciones institucionales limitan o permiten el desarrollo de una cultura de ciberseguridad en la UNMSM en 2025?</p>
+                    <h3 class="font-bold text-xl mb-3 text-center text-sky-800">Problemas Específicos</h3>
+                    <ol class="list-decimal text-base space-y-2 pl-5">
+                        <li>¿Qué vulnerabilidades y riesgos se evidencian en los sistemas de la UNMSM con análisis forense pasivo?</li>
+                        <li>¿Cómo abordan los funcionarios los incidentes y qué discursos institucionales se han desarrollado?</li>
+                        <li>¿Qué dinámicas políticas y conflictos internos emergen en torno a la filtración de datos?</li>
+                        <li>¿Cómo perciben y reaccionan los actores universitarios ante los incidentes?</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: 1.3. Justificación -->
+        <div id="slide-4" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title">1.3. Justificación de la Investigación</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-lg mb-2 text-sky-700">Pertinencia Empírica</h4>
+                        <p class="text-sm">Incidentes de seguridad en la UNMSM evidencian la fragilidad de los sistemas y la ausencia de cultura preventiva.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-lg mb-2 text-green-700">Pertinencia Analítica</h4>
+                        <p class="text-sm">Desnaturaliza la seguridad como un asunto solo técnico, vinculándola a estructuras de poder y política interna.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-lg mb-2 text-amber-700">Contribución Metodológica</h4>
+                        <p class="text-sm">Combina análisis forense digital (OSINT) con métodos cualitativos para un abordaje integral del problema.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-lg mb-2 text-purple-700">Pertinencia Propositiva</h4>
+                        <p class="text-sm">Extrae lecciones para otras entidades, enfocándose en los obstáculos reales para implementar políticas de ciberseguridad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: 1.4. Objetivos -->
+        <div id="slide-5" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title">1.4. Objetivos de la Investigación</h2>
+                <div class="space-y-6">
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h3 class="font-bold text-xl mb-2 text-center text-slate-800">Objetivo General</h3>
+                        <p class="text-lg text-center">Analizar la gestión del riesgo digital y las condiciones institucionales que limitan o permiten una cultura de ciberseguridad en la UNMSM.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h3 class="font-bold text-xl mb-2 text-center text-slate-800">Objetivos Específicos</h3>
+                        <ul class="list-disc pl-5 mt-2 space-y-2 text-base">
+                            <li>Identificar vulnerabilidades y riesgos digitales mediante análisis forense pasivo.</li>
+                            <li>Examinar las respuestas institucionales y discursos oficiales frente a incidentes.</li>
+                            <li>Analizar las dinámicas políticas y usos estratégicos de la información en los incidentes.</li>
+                            <li>Interpretar las percepciones y prácticas de la comunidad universitaria para comprender la cultura de seguridad.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: 2. Marco Teórico -->
+        <div id="slide-6" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title">2. Marco Teórico</h2>
+                <div class="text-center max-w-4xl mx-auto">
+                    <h3 class="font-bold text-xl mb-3 text-slate-700">Perspectiva Crítica y Situada</h3>
+                    <p class="text-base mb-4 bg-slate-100 p-4 rounded-lg">La gestión del riesgo digital no es un campo neutral ni puramente técnico. Está atravesado por <strong>disputas de poder, racionalidades contradictorias y lógicas organizacionales</strong> que condicionan las políticas de ciberseguridad.</p>
+                    <h3 class="font-bold text-xl mb-3 text-slate-700">Conceptos Clave</h3>
+                    <div class="flex justify-center gap-4 flex-wrap">
+                        <span class="bg-sky-100 text-sky-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Gobernanza Tecnológica</span>
+                        <span class="bg-red-100 text-red-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Cultura de Seguridad</span>
+                        <span class="bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Riesgo Digital</span>
+                        <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Disputas de Poder</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: 3. Metodología -->
+        <div id="slide-7" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title">3. Metodología</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                        <h3 class="font-bold text-lg mb-3 text-sky-800">Enfoque y Diseño</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-base">
+                            <li><strong>Enfoque:</strong> Cualitativo, crítico y situado.</li>
+                            <li><strong>Tipo:</strong> Exploratorio y descriptivo-analítico.</li>
+                            <li><strong>Diseño:</strong> Estudio de caso instrumental (UNMSM), no experimental y transversal.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                        <h3 class="font-bold text-lg mb-3 text-sky-800">Técnicas e Instrumentos</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-base">
+                            <li><strong>Análisis Forense Pasivo (OSINT):</strong> Mapeo de vulnerabilidades públicas.</li>
+                            <li><strong>Entrevistas semiestructuradas:</strong> A funcionarios, docentes y estudiantes.</li>
+                            <li><strong>Análisis de contenido:</strong> De documentos oficiales y comunicados.</li>
+                            <li><strong>Cuestionarios:</strong> A docentes y personal de TI.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: 3. Matriz de Consistencia -->
+        <div id="slide-8" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title">3. Matriz de Consistencia</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Problema</th>
+                                <th>Objetivo</th>
+                                <th>Constructos Clave</th>
+                                <th>Metodología</th>
+                                <th>Técnicas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-bold">G: ¿Cómo se gestiona el riesgo y qué condiciones limitan/permiten una cultura de ciberseguridad?</td>
+                                <td class="font-bold">G: Analizar la gestión del riesgo y las condiciones institucionales para una cultura de ciberseguridad.</td>
+                                <td rowspan="3">Gestión Riesgo Digital, Cultura Ciberseguridad, Gobernanza Tec., Disputas de Poder.</td>
+                                <td rowspan="3">Cualitativa, Crítica. Estudio de caso instrumental, no experimental.</td>
+                                <td rowspan="3">Análisis forense (OSINT), Entrevistas, Análisis de contenido, Cuestionarios.</td>
+                            </tr>
+                            <tr>
+                                <td>E1: ¿Qué vulnerabilidades y riesgos se evidencian?</td>
+                                <td>E1: Identificar vulnerabilidades y riesgos.</td>
+                            </tr>
+                            <tr>
+                                <td>E2: ¿Cómo abordan los funcionarios los incidentes?</td>
+                                <td>E2: Examinar respuestas y discursos institucionales.</td>
+                            </tr>
+                             <tr>
+                                <td>E3: ¿Qué dinámicas políticas emergen?</td>
+                                <td>E3: Analizar dinámicas políticas y usos de la info.</td>
+                                 <td>Cultura Ciberseguridad</td>
+                                 <td>Estudio de caso</td>
+                                 <td>Entrevistas, Análisis de contenido</td>
+                            </tr>
+                            <tr>
+                                <td>E4: ¿Cómo perciben los actores los incidentes?</td>
+                                <td>E4: Interpretar percepciones y prácticas.</td>
+                                 <td>Cultura Ciberseguridad</td>
+                                 <td>Estudio de caso</td>
+                                 <td>Entrevistas, Cuestionarios</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 9: 4.1. Resultados del Análisis de Dominios -->
+        <div id="slide-9" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title">4.1. Resultados: Análisis de Dominios</h2>
+                <div class="grid md:grid-cols-3 gap-4 text-center">
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-lg mb-2 text-red-700">Patrón de Abandono</h4>
+                        <p class="text-sm">Gran proporción de subdominios con errores 404/403, mal configurados, abandonados o subutilizados. Evidencia de "arqueología digital".</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-lg mb-2 text-red-700">Gobernanza Fragmentada</h4>
+                        <p class="text-sm">La infraestructura digital carece de gestión coherente. Falta de uniformidad y centralización en la gobernanza tecnológica.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-lg mb-2 text-red-700">Riesgo por Omisión</h4>
+                        <p class="text-sm">El riesgo no solo está en ataques activos, sino en estructuras de abandono tecnológico, débil mantenimiento y falta de políticas de baja de activos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Muestra de Subdominios y Estado -->
+        <div id="slide-10" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title">4.1.1. Resultados: Muestra de Subdominios y Estado</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Subdominio</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>sum.unmsm.edu.pe</td><td class="text-green-600 font-semibold">Activo</td></tr>
+                            <tr><td>campus.unmsm.edu.pe</td><td class="text-green-600 font-semibold">Activo</td></tr>
+                            <tr><td>bibliotecavirtual.unmsm.edu.pe</td><td class="text-green-600 font-semibold">Activo</td></tr>
+                            <tr><td>old-server.unmsm.edu.pe</td><td class="text-red-600 font-semibold">No Encontrado (404)</td></tr>
+                            <tr><td>test.unmsm.edu.pe</td><td class="text-orange-600 font-semibold">Acceso Restringido (403)</td></tr>
+                            <tr><td>correo.unmsm.edu.pe</td><td class="text-blue-600 font-semibold">Activo (Redirige a Google)</td></tr>
+                            <tr><td>intranet.ogpl.unmsm.edu.pe</td><td class="text-red-600 font-semibold">Error de Configuración</td></tr>
+                            <tr><td>eventos.fca.unmsm.edu.pe</td><td class="text-green-600 font-semibold">Activo</td></tr>
+                            <tr><td>sistemas.unmsm.edu.pe</td><td class="text-green-600 font-semibold">Activo</td></tr>
+                            <tr><td>dev.unmsm.edu.pe</td><td class="text-red-600 font-semibold">No Encontrado (404)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: 4.2.1. Análisis de Grafos (RR.HH.) -->
+        <div id="slide-11" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title">4.2.1. Resultados: Análisis de Grafos (RR.HH.)</h2>
+                <h3 class="slide-subtitle">Caso: www.talenthum-unmsm.site</h3>
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 max-w-3xl mx-auto">
+                    <h4 class="font-bold text-lg mb-3 text-red-800 text-center">Riesgos Identificados en la Infraestructura</h4>
+                    <ul class="list-disc pl-5 space-y-3 text-base">
+                        <li><strong>Infraestructura Compartida:</strong> El dominio está alojado en un servicio de hosting masivo (Bluehost/HostGator), lo que incrementa el riesgo por "efecto dominó".</li>
+                        <li><strong>Falta de Aislamiento:</strong> No se evidencia el uso de una red privada o un servidor dedicado. Esto debilita el control de acceso y la trazabilidad.</li>
+                        <li><strong>Exposición a Vulnerabilidades Conocidas:</strong> La dependencia de proveedores externos aumenta el riesgo si el mantenimiento no es constante.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: 4.2.2. Análisis del dominio unmsm.edu.pe -->
+        <div id="slide-12" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title">4.2.2. Resultados: Análisis de Grafos (unmsm.edu.pe)</h2>
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 max-w-3xl mx-auto">
+                    <h4 class="font-bold text-lg mb-3 text-red-800 text-center">Complejidad y Exposición del Dominio Principal</h4>
+                    <ul class="list-disc pl-5 space-y-3 text-base">
+                        <li><strong>Vasta Superficie de Ataque:</strong> El dominio principal presenta una red extensa y compleja de subdominios, servicios y tecnologías, multiplicando los puntos de entrada.</li>
+                        <li><strong>Interconexiones Críticas:</strong> Se identifican relaciones directas con sistemas de misión crítica como el correo electrónico, plataformas académicas y servicios administrativos.</li>
+                        <li><strong>Centralidad y Criticidad Sistémica:</strong> Un incidente en el dominio central tiene un alto potencial de impacto sistémico en toda la universidad.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: 4.2.3. Análisis del Discurso -->
+        <div id="slide-13" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title">4.2.3. Resultados: Análisis del Discurso</h2>
+                <h3 class="slide-subtitle">Respuesta Institucional a Incidentes de Seguridad</h3>
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 max-w-4xl mx-auto">
+                    <h4 class="font-bold text-lg mb-3 text-slate-800 text-center">Claves del Discurso Institucional</h4>
+                    <ul class="list-disc pl-5 space-y-3 text-base">
+                        <li><strong>Tendencia a la Minimización:</strong> Se observa una inclinación a reducir la percepción de gravedad de los incidentes para proteger la imagen institucional.</li>
+                        <li><strong>Externalización de la Culpa:</strong> El discurso suele atribuir la responsabilidad a "atacantes externos", desviando la atención de vulnerabilidades internas.</li>
+                        <li><strong>Enfoque Reactivo y Técnico:</strong> La comunicación se centra en las acciones tomadas *después* del incidente, en lugar de abordar la prevención o las causas raíz.</li>
+                        <li><strong>Brecha Discursiva:</strong> A menudo existe una contradicción entre la narrativa oficial y la evidencia técnica, lo que puede erosionar la confianza.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Reacciones de Estudiantes a Filtración -->
+        <div id="slide-14" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title">4.2.4. Resultados: Reacciones a Filtración de Datos</h2>
+                <h3 class="slide-subtitle">La Voz de los Estudiantes</h3>
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 max-w-4xl mx-auto">
+                    <h4 class="font-bold text-lg mb-3 text-slate-800 text-center">Claves de la Reacción Estudiantil</h4>
+                    <ul class="list-disc pl-5 space-y-3 text-base">
+                        <li><strong>Difusión Viral:</strong> El incidente se popularizó rápidamente en redes sociales (TikTok, Facebook), evidenciando la velocidad de la comunicación digital fuera de los canales oficiales.</li>
+                        <li><strong>Humor como Catarsis:</strong> La creación de memes y contenido humorístico fue la reacción dominante, funcionando como un mecanismo de defensa colectivo ante la frustración.</li>
+                        <li><strong>Normalización del Fallo:</strong> Se observó una actitud de resignación ("es San Marcos, qué se puede esperar"), sugiriendo una baja expectativa sobre la capacidad de la institución.</li>
+                        <li><strong>Conciencia del Riesgo y Desconfianza:</strong> A pesar del humor, los estudiantes expresaron preocupación por la exposición de sus datos personales y una profunda desconfianza en la protección que ofrece la universidad.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 15: 4.2.5. Cuestionario a Docentes -->
+        <div id="slide-15" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title">4.2.5. Cuestionario a Docentes</h2>
+                <h3 class="slide-subtitle">Preguntas Clave por Constructo</h3>
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 max-w-4xl mx-auto text-left">
+                    <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                        <div>
+                            <h4 class="font-bold text-lg mb-2 text-sky-700">Constructo 1: Gestión del Riesgo Digital</h4>
+                            <ul class="list-decimal pl-5 space-y-2 text-sm">
+                                <li>¿Considera que la universidad gestiona adecuadamente los riesgos digitales?</li>
+                                <li>En su opinión, ¿cuál es el principal riesgo digital que enfrenta la universidad?</li>
+                                <li>¿Conoce si existe una política de seguridad de la información?</li>
+                                <li>¿Ha recibido directrices claras sobre cómo actuar ante un incidente de seguridad?</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2 text-red-700">Constructo 2: Cultura de Ciberseguridad</h4>
+                            <ul class="list-decimal pl-5 space-y-2 text-sm" start="5">
+                                <li>En una escala del 1 al 5, ¿qué tan prioritario es la ciberseguridad en su labor diaria?</li>
+                                <li>¿Ha recibido capacitación sobre seguridad en el último año?</li>
+                                <li>¿Se sentiría capaz de identificar un correo de phishing?</li>
+                                <li>¿Sabe a quién reportar un incidente de seguridad?</li>
+                                <li>¿Utiliza contraseñas diferentes y seguras para los sistemas de la universidad?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 16: 4.2.6. Cuestionario a Funcionarios de TI -->
+        <div id="slide-16" class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title">4.2.6. Cuestionario a Funcionarios de TI</h2>
+                <h3 class="slide-subtitle">Preguntas Clave por Constructo</h3>
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 max-w-4xl mx-auto text-left">
+                    <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                        <div>
+                            <h4 class="font-bold text-lg mb-2 text-sky-700">Constructo 1: Gestión del Riesgo Digital</h4>
+                            <ul class="list-decimal pl-5 space-y-2 text-sm">
+                                <li>¿Cuenta la universidad con una estrategia formal para la gestión del riesgo digital?</li>
+                                <li>¿Cuáles son las principales barreras para implementar controles de seguridad efectivos?</li>
+                                <li>¿Existe un inventario actualizado de activos de información críticos?</li>
+                                <li>¿Se realizan evaluaciones de riesgo o auditorías de seguridad periódicamente?</li>
+                                <li>¿Existe y se aplica un protocolo claro para la gestión de incidentes?</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2 text-red-700">Constructo 2: Cultura de Ciberseguridad</h4>
+                            <ul class="list-decimal pl-5 space-y-2 text-sm" start="6">
+                                <li>¿Cómo describiría el apoyo de la alta dirección en materia de ciberseguridad?</li>
+                                <li>¿Las decisiones de TI responden a criterios técnicos o políticos?</li>
+                                <li>¿Se realizan campañas de concientización en ciberseguridad para el personal?</li>
+                                <li>¿Cuál es el mayor obstáculo para fomentar una cultura de ciberseguridad?</li>
+                                <li>¿Cuenta con los recursos necesarios para implementar las políticas de seguridad?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 17: Cierre -->
+        <div id="slide-17" class="slide">
+            <div class="slide-content text-center">
+                <h2 class="text-5xl font-black mb-6">Gracias</h2>
+                <p class="text-2xl text-slate-300">Preguntas y Respuestas</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <button id="prevBtn" class="nav-button bg-white text-slate-700 border border-slate-300">Anterior</button>
+        <div id="slideCounter" class="text-slate-600 font-semibold"></div>
+        <button id="nextBtn" class="nav-button bg-blue-600 text-white">Siguiente</button>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const slideCounter = document.getElementById('slideCounter');
+            let currentSlide = 0;
+
+            function showSlide(n) {
+                // Ocultar la diapositiva actual si existe
+                if (slides[currentSlide]) {
+                    slides[currentSlide].classList.remove('active');
+                }
+
+                // Actualizar el índice de la diapositiva
+                currentSlide = n;
+
+                // Mostrar la nueva diapositiva
+                if (slides[currentSlide]) {
+                    slides[currentSlide].classList.add('active');
+                }
+                
+                // Cambiar el color de fondo de las diapositivas de portada y cierre
+                if(slides[currentSlide].id === 'slide-1' || slides[currentSlide].id === 'slide-17'){
+                    slides[currentSlide].classList.add('bg-slate-800', 'text-white');
+                }
+
+                // Actualizar el contador
+                slideCounter.textContent = `Diapositiva ${currentSlide + 1} de ${slides.length}`;
+
+                // Habilitar/deshabilitar botones
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === slides.length - 1;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentSlide > 0) {
+                    showSlide(currentSlide - 1);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentSlide < slides.length - 1) {
+                    showSlide(currentSlide + 1);
+                }
+            });
+            
+            // Inicializar la primera diapositiva
+            showSlide(0);
+        });
+    </script>
+</body>
+</html>
